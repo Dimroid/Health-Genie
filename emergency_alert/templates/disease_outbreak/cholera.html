@@ -1,0 +1,127 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Cholera: History, Transmission, Prevention, and Symptoms{% endblock %}
+
+{% block content %}
+
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+    }
+
+    header h1 {
+        text-align: center;
+        font-size: 2.7em;
+        margin-top: 20px;
+        color: #2c3e50;
+        text-align: center;
+        text-shadow: 
+        1px 1px 0 #401c49,  /* right */
+        -1px -1px 0 #0059ff, /* left */
+        -1px 1px 0 #b40808,  /* bottom-left */
+        1px -1px 0 #09ff00;  /* top-right */
+    }
+
+    main {
+        padding: 20px;
+    }
+
+    section {
+        margin-bottom: 40px;
+    }
+
+    section h2 {
+        font-size: 2em;
+        margin-bottom: 10px;
+        color: #2980b9;
+        border-bottom: 2px solid #2980b9;
+        padding-bottom: 5px;
+    }
+
+    section p, section ul {
+        font-size: 1.2em;
+        color: #34495e;
+    }
+
+    section ul {
+        /* padding-left: 20px; */
+    }
+
+    section ul li {
+        margin-bottom: 10px;
+    }
+
+    .image-container {
+        text-align: center;
+        white-space: nowrap;
+    }
+
+    .image-container img {
+        margin: auto;
+        margin-bottom: 20px;
+        margin-top: 30px;
+        display: inline-block;
+        width: 40%;
+    }
+
+    footer {
+        text-align: center;
+        margin-top: 20px;
+        font-size: 0.9em;
+        color: #7f8c8d;
+    }
+
+    img {
+        display: block;
+        margin: 20px auto;
+        width: 100%;
+        max-width: 600px;
+    }
+</style>
+
+<header>
+    <h1 style="color: #19304e;" >Cholera: History, Transmission, Prevention, and Symptoms</h1>
+</header>
+<main>
+    <section id="history">
+        <div class="image-container">
+            <img src="{% static 'cholera_files/ci.jpeg' %}" alt="Cholera Illustration">
+            <img src="{% static 'cholera_files/c2.jpeg' %}" alt="Cholera Illustration">
+        </div>
+        <h2>History of Cholera</h2>
+        <p>Cholera has been a major public health concern for centuries...</br>Cholera is an acute diarrhoeal infection caused by ingestion of food or water contaminated with the bacterium Vibrio cholerae. Cholera remains a global threat to public health and an indicator of inequity and lack of social development.</p>
+    </section>
+    <section id="transmission">
+        <h2>Ways of Transmission</h2>
+        <ul>
+            <li>Contaminated food and water</li>
+            <li>Person-to-person contact</li>
+            <li>Unhygienic environment</li>
+        </ul>
+    </section>
+    <section id="prevention">
+        <h2>Prevention Tips</h2>
+        <ul>
+            <li>Drink safe water</li>
+            <li>Wash your hands regularly</li>
+            <li>Avoid close contact with infected people</li>
+            <li>Get vaccinated</li>
+        </ul>
+    </section>
+    <section id="symptoms">
+        <h2>Symptoms of Cholera</h2>
+        <ul>
+            <li>Diarrhea</li>
+            <li>Vomiting</li>
+            <li>Dehydration</li>
+            <li>Fever</li>
+        </ul>
+    </section>
+</main>
+<footer>
+    <p>Copyright 2023. All rights reserved.</p>
+</footer>
+{% endblock %}

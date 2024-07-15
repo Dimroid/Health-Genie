@@ -1,0 +1,138 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}Medication Management{% endblock %}
+
+{% block content %}
+    <style>
+        .medication-detail-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .medication-detail-heading {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-align: center;
+        }
+
+        .medication-detail-text {
+            margin-bottom: 10px;
+        }
+
+        .medication-detail-button-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .medication-detail-button {
+            margin-right: 10px;
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .medication-detail-button:hover {
+            background-color: #0056b3;
+        }
+
+        .reminder-list {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .reminder-item {
+            padding: 10px;
+            background-color: #fff;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .reminder-link {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .reminder-link:hover {
+            text-decoration: underline;
+        }
+
+        .reminder-form {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .reminder-input {
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .reminder-submit {
+            padding: 8px 16px;
+            border-radius: 5px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+        .reminder-submit:hover {
+            background-color: #218838;
+        }
+    </style>
+
+    <div class="medication-detail-container">
+        <h1 class="medication-detail-heading">{{ medication.name }}</h1>
+        <p class="medication-detail-text"><strong>Description:</strong> {{ medication.description }}</p>
+        <p class="medication-detail-text"><strong>Dosage:</strong> {{ medication.dosage }}</p>
+        <p class="medication-detail-text"><strong>Start Date:</strong> {{ medication.start_date }}</p>
+        <p class="medication-detail-text"><strong>End Date:</strong> {{ medication.end_date }}</p>
+        <div class="medication-detail-button-group">
+            <a href="{% url 'medication_management:edit_medication' medication.pk %}" class="medication-detail-button">Edit</a>
+            <a href="{% url 'medication_management:delete_medication' medication.pk %}" class="medication-detail-button">Delete</a>
+        </div>
+        <h2 class="medication-detail-heading">Reminders</h2>
+        <ul class="reminder-list">
+            {% for reminder in medication.reminders.all %}
+            <li class="reminder-item">
+                {{ reminder.reminder_time }} - {{ reminder.notes }}
+                <a href="{% url 'medication_management:delete_reminder' reminder.pk %}" class="reminder-link">Delete</a>
+            </li>
+            {% endfor %}
+        </ul>
+        <a href="{% url 'medication_management:add_reminder' medication.pk %}" class="medication-detail-button">Add Reminder</a>
+        <a href="{% url 'medication_management:medication_list' %}" class="medication-detail-button">Back to Medication List</a>
+    </div>
+
+    <!-- Include Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Check reminders and activate notifications
+            function checkReminders() {
+                var reminders = document.querySelectorAll('input[name="reminder_time"]');
+                reminders.forEach(function(reminder) {
+                    var reminderTime = new Date(reminder.value);
+                    var currentTime = new Date();
+                    if (reminderTime.getHours() === currentTime.getHours() && reminderTime.getMinutes() === currentTime.getMinutes()) {
+                        // Activate device notification here
+                        alert('Reminder: ' + reminder.parentElement.querySelector('input[name="notes"]').value);
+                    }
+                });
+            }
+
+            // Check reminders every minute
+            setInterval(checkReminders, 60000); // 60000 milliseconds = 1 minute
+        });
+    </script>
+{% endblock %}

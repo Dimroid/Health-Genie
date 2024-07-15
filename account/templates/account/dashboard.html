@@ -1,0 +1,479 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>{% block title %}{% endblock %}</title>
+        <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/css/bootstrap-datepicker.min.css" rel="stylesheet">
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+        <link rel="stylesheet" href="{% static 'css/Dashboard/style.css' %}">
+        <!-- Bootstrap JS and dependencies -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.11.6/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/5.1.3/js/bootstrap.min.js"></script>
+        <!-- Font Awesome JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/js/all.min.js"></script>
+        
+    </head>
+
+    <style>
+        .messages {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+    
+        .messages li {
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+        }
+    
+        .messages .success {
+            background-color: #d4edda;
+            color: #155724;
+        }
+    
+        .messages .error {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+    
+        .messages .info {
+            background-color: #cce5ff;
+            color: #004085;
+        }
+    
+        .messages .warning {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+    
+        .messages .close {
+            float: right;
+            cursor: pointer;
+        }
+    </style>  
+
+    <!-- modal style bot -->
+    <style>
+    .modal-content {
+        border-radius: 10%;
+    }
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        height: 400px;
+        border: 1px solid #ddd;
+        border-radius: 15px;
+        overflow: hidden;
+    }
+    .chat-box {
+        flex-grow: 1;
+        padding: 10px;
+        overflow-y: auto;
+        border-bottom: 1px solid #ddd;
+    }
+    .message {
+        display: flex;
+        align-items: center;
+        margin: 10px 0;
+    }
+    .bot-message {
+        justify-content: flex-start;
+    }
+    .user-message {
+        justify-content: flex-end;
+    }
+    .message .avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 100%;
+        margin-right: 10px;
+    }
+    .bot-avatar {
+        background-color: #0078D7;
+    }
+    .user-avatar {
+        background-color: #00A4EF;
+    }
+    .message-content {
+        background-color: #f1f1f1;
+        border-radius: 15px;
+        padding: 10px;
+        max-width: 70%;
+    }
+    .input-container {
+        display: flex;
+        border-top: 1px solid #ddd;
+    }
+    .input-1 {
+        flex-grow: 1;
+        border: none;
+        padding: 15px;
+        font-size: 16px;
+        border-radius: 0 0 0 15px;
+        outline: none;
+    }
+    button.send-btn {
+        background-color: #0078D7;
+        color: #fff;
+        border: none;
+        padding: 15px 20px;
+        cursor: pointer;
+        font-size: 16px;
+        border-radius: 0 0 15px 0;
+    }
+    button.send-btn:hover {
+        background-color: #005bb5;
+    }
+    .stars {
+        display: flex;
+        flex-direction: row-reverse;
+        justify-content: center;
+        padding: 10px 0;
+    }
+    .stars .input-1[type="radio"] {
+        display: none;
+    }
+    .stars label {
+        color: #ccc;
+        font-size: 30px;
+        cursor: pointer;
+        transition: color 0.2s;
+    }
+    .stars .input-1[type="radio"]:checked ~ label {
+        color: #f0c420;
+    }
+    .stars label:hover,
+    .stars label:hover ~ label {
+        color: #f0c420;
+    }
+    .custom-modal-header {
+        border-top-left-radius: 35px;
+        border-top-right-radius: 35px;
+        background-color: lightblue;
+    }
+    .modal-body {
+        background: linear-gradient(
+            to bottom,
+            rgba(160, 189, 233, 1) 0%,
+            rgba(160, 189, 233, 0) 90%
+        );
+    }
+    .chat-container {
+        background: linear-gradient(
+            to bottom,
+            rgba(160, 189, 233, 1) 0%,
+            rgba(160, 189, 233, 0) 90%
+        );
+    }
+    .position-fixed {
+        z-index: 1050;
+    }
+
+
+    </style>
+
+
+    <body>
+
+        <button class="btn btn-primary position-fixed bottom-0 end-0 m-4 rounded-circle" data-bs-target="#exampleModalToggle" data-bs-toggle="modal" style="width: 65px; height: 50px; background-color: #0078D7;" >
+            <i class="fa-solid fa-circle fa-2x fa-beat" style="--fa-beat-scale: 1.0;"></i>
+        </button>
+
+        <div class="modal fade" id="exampleModalToggle" aria-hidden="true" aria-labelledby="exampleModalToggleLabel" tabindex="-1">
+            <div class="modal-dialog modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header custom-modal-header">
+                        <h1 class="modal-title fs-5" id="exampleModalToggleLabel">Health Genie</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" style="padding-right: 30px;"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="chat-container">
+                            <div class="chat-box" id="chat-box">
+                                <div class="message bot-message">
+                                    <div class="avatar bot-avatar"></div>
+                                    <div class="message-content">Hello! How can I help you today?</div>
+                                </div>
+                            </div>
+                            <div class="input-container">
+                                <input type="text" id="user-input" placeholder="Type your message here..." onkeypress="sendMessage(event)">
+                                <button class="send-btn" onclick="sendMessageBtn()">Send</button>
+                            </div>
+                        </div>
+                        <div class="stars mt-3">
+                            <input class="input-1" type="radio" name="star" id="star1"><label for="star1">&#9733;</label>
+                            <input class="input-1" type="radio" name="star" id="star2"><label for="star2">&#9733;</label>
+                            <input class="input-1" type="radio" name="star" id="star3"><label for="star3">&#9733;</label>
+                            <input class="input-1" type="radio" name="star" id="star4"><label for="star4">&#9733;</label>
+                            <input class="input-1" type="radio" name="star" id="star5"><label for="star5">&#9733;</label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        
+
+        <div class="wrapper">
+            {% if request.user.is_authenticated %}
+            <aside id="sidebar" style="background-color: #88a9db;">
+                <div class="d-flex">
+                    <button class="toggle-btn" type="button">
+                        <i class="lni lni-grid-alt"></i>
+                    </button>
+                    <div class="sidebar-logo">
+                        <a href="{% url 'dashboard' %}">Health Genie</a>
+                    </div>
+                </div>
+                <ul class="sidebar-nav">
+                    <li class="sidebar-item">
+                        <a href="{% url 'user_search' %}" class="sidebar-link {% if section == 'profile_search' %} selected_now {% endif %} "> 
+                            <i class="fas fa-user" style="margin-right: 10px;" ></i>
+                            <span>Profile Search</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                    <a href="{% url 'symptom_checker:symptom' %}" class = "sidebar-link {% if section == 'symptom' %} selected_now {% endif %}">
+                        <i class="fas fa-virus" style="margin-right: 10px;"></i>
+                        <span>Symptom Checker</span>
+                    </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'medication_management:medication_list' %}" class = "sidebar-link {% if section == 'medication' %} selected_now {% endif %}">
+                            <i class="fas fa-capsules" style="margin-right: 10px;"></i>
+                            <span>Medication Management</span>
+                        </a>
+                        </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'calory_calculator:calory' %}" class = "sidebar-link {% if section == 'calories' %} selected_now {% endif %}">
+                            <i class="fas fa-utensils" style="margin-right: 10px;"></i>
+                            <span>Calory Calculator</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="{% url 'brain_tumor_detection:default' %}" class="sidebar-link {% if section == 'Medical.D' %} selected_now {% endif %} collapsed has-dropdown" data-bs-toggle="collapse"
+                            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                            <i class="fas fa-stethoscope" style="margin-right: 10px;"></i>
+                            <span>Medical Diagnosis</span>
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href="{% url 'brain_tumor_detection:default' %}" class="sidebar-link {% if section == 'Medical.D' %} selected_now {% endif %}">Brain Tumour </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{% url 'diabetic_prediction:default' %}" class="sidebar-link  {% if section == 'Medical.D' %} selected_now {% endif %}">Diabetic Prediction</a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{% url 'cancer_prediction:breast_cancer' %}" class="sidebar-link  {% if section == 'Medical.D' %} selected_now {% endif %}">Breast Cancer Prediction</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="{% url 'brain_tumor_detection:default' %}" class="sidebar-link {% if section == 'messaging' %} selected_now {% endif %} collapsed has-dropdown" data-bs-toggle="collapse"
+                            data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                            <i class="fas fa-paper-plane" style="margin-right: 10px;"></i>
+                            <span>Messaging</span>
+                        </a>
+                        <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                            <li class="sidebar-item">
+                                <a href= "{% url 'messaging:inbox' %}" class="sidebar-link {% if section == 'messaging' %} selected_now {% endif %}"><i class="fas fa-inbox"></i>Inbox </a>
+                            </li>
+                            <li class="sidebar-item">
+                                <a href="{% url 'messaging:sent_messages' %}"  class="sidebar-link  {% if section == 'messaging' %} selected_now {% endif %}">Sent Messages</a>
+                            </li>
+                        </ul>
+                    </li> 
+
+                    <li class="sidebar-item">
+                        <a href="{% url 'chatbot:chatbot' %}" class="sidebar-link {% if section == 'chatbot' %} selected_now {% endif %} ">
+                            <i class="fas fa-robot" style="margin-right: 10px;"></i>
+                            <span>Chatbot</span>
+                        </a>
+                    </li>
+
+                    <li class="sidebar-item">
+                        <a href="{% url 'disease_outbreak:index' %}" class="sidebar-link {% if section == 'disease' %} selected_now {% endif %} ">
+                            <i class="fas fa-biohazard" style="margin-right: 10px;"></i>
+                            <span>Disease Outbreak</span>
+                        </a>
+                    </li>
+<!-- 
+                    <li class="sidebar-item">
+                        <a href="#" class="sidebar-link">
+                            <i class="fas fa-external-link-alt" style="margin-right: 10px;"></i>
+                            <span>Notification</span>
+                        </a>
+                    </li> -->
+                    <li class="sidebar-item">
+                        <a href="{% url 'edit' %}" class="sidebar-link {% if section == 'edit' %} selected_now {% endif %} ">
+                            <i class="fas fa-cog" style="margin-right: 10px;"></i>
+                            <span>Setting</span>
+                        </a>
+                    </li>
+                </ul>
+                <div class="sidebar-footer">
+                    <a href="{% url 'logout' %}" class="sidebar-link">
+                        <i class="fas fa-sign-out-alt" style="margin-right: 10px;"></i>
+                        <span>Logout</span>
+                    </a>
+                </div>
+                {% endif %}
+             </aside>
+        
+            <div class="main">
+                <nav class="navbar navbar-expand px-4 py-3">
+                    <form action="#" class="d-none d-sm-inline-block">
+
+                    </form>
+                    <div class="navbar-collapse collapse">
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown" style="align-self: left;">
+                                <a class="navbar-brand" style="margin-left:10px ;" href="{% url 'dashboard' %}">
+                                    <img src="{% static "Home/Health Genie.png" %}" alt="" style="width: 150px;" class="d-inline-block align-text-top">
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end rounded">
+
+                                </div>
+                            </li>
+                        </ul>
+                        <ul class="navbar-nav ms-auto">
+                            <li class="nav-item dropdown">
+                                <a href="#" data-bs-toggle="dropdown" class="nav-icon pe-md-0">
+                                    <table>
+                                        <tr>
+                                            <td>
+                                                <img src="{% static 'css/Dashboard/account.png' %}" class="avatar img-fluid" alt="">
+                                            </td>
+                                            <td>
+                                                <span class="user", style="align-self: center; margin: 20px; color: white;">
+                                                    {% if request.user.is_authenticated %}
+                                                        {{ request.user.username }},
+                                                    {% else %}
+                                                        <a href="{% url "login" %}">Log-in</a>
+                                                    {% endif %}
+                                                </span>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-end rounded">
+
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <ul class="messages">
+                    {% for message in messages %}
+                    <li class="{{ message.tags }}">
+                        {{ message|safe }}
+                        <a href="#" class="close">x</a>
+                    </li>
+                    {% endfor %}
+                </ul>   
+                
+
+
+                <h1>
+                    {% block form_title %}{% endblock %}
+                </h1>
+
+
+
+                {% block content %}
+                {% endblock %}
+                
+            
+        </div>
+        </div>
+
+                 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+                    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+                    crossorigin="anonymous">
+                </script>
+                <script src="{% static 'css/Dashboard/script.js' %}"></script>
+                <!-- <script>
+                    $(function() {
+                        $("#id_date_of_birth").datepicker({
+                            dateFormat: "yy-mm-dd"
+                        });
+                    });
+                </script> -->
+                <!-- Custom JS -->
+                <script>
+                    function sendMessage(event) {
+                        if (event.key === 'Enter') {
+                            sendMessageBtn();
+                        }
+                    }
+
+                    function sendMessageBtn() {
+                        const userInput = document.getElementById('user-input').value;
+                        if (userInput.trim() === '') return;
+
+                        addMessage(userInput, 'user-message');
+                        document.getElementById('user-input').value = '';
+
+                        setTimeout(() => {
+                            const botResponse = getBotResponse(userInput);
+                            addMessage(botResponse, 'bot-message');
+                        }, 500);
+                    }
+
+                    function addMessage(message, className) {
+                        const chatBox = document.getElementById('chat-box');
+                        const messageElement = document.createElement('div');
+                        messageElement.className = `message ${className}`;
+
+                        const avatar = document.createElement('div');
+                        avatar.className = `avatar ${className === 'bot-message' ? 'bot-avatar' : 'user-avatar'}`;
+
+                        const messageContent = document.createElement('div');
+                        messageContent.className = 'message-content';
+                        messageContent.textContent = message;
+
+                        messageElement.appendChild(avatar);
+                        messageElement.appendChild(messageContent);
+                        chatBox.appendChild(messageElement);
+                        chatBox.scrollTop = chatBox.scrollHeight;
+                    }
+
+                    function getBotResponse(userInput) {
+                        // Basic responses for demonstration
+                        const responses = {
+                            'hello': 'Hi there!',
+                            'how are you': 'I am a bot, but I am doing well!',
+                            'bye': 'Goodbye!',
+                            'navigate':'click on the top left corner, then choose which feature you\'d like'
+                        };
+
+                        const lowerCaseInput = userInput.toLowerCase();
+                        return responses[lowerCaseInput] || 'I am not sure how to respond to that.';
+                    }
+
+                    function openLocation() {
+                        // This function will open the device's location storage
+                        alert('Opening location storage...');
+                        // Note: Accessing device location storage requires specific permissions and APIs.
+                        // Here we just simulate the action with an alert.
+                    }
+                </script>
+
+    </body>
+</html>

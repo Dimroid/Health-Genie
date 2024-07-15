@@ -1,0 +1,160 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Add Reminder{% endblock %}
+
+{% block content %}
+
+<!-- Include Flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<style>
+    .reminder-container {
+        max-width: 90vw;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        overflow: hidden;
+    }
+
+    .reminder-container h1 {
+        text-align: center;
+        font-weight: bold;
+        font-size: 2em;
+        color: #3b5998;
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .reminder-container h1::after {
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        width: 10px;
+        height: 10px;
+        background: #3b5998;
+        border-radius: 50%;
+        animation: drip 1.5s infinite;
+        transform: translateX(-50%);
+    }
+
+    .form-group {
+        margin-bottom: 15px;
+    }
+
+    .form-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+        color: #333;
+    }
+
+    .form-input {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+    }
+
+    .form-textarea {
+        width: 100%;
+        height: 20vh;
+        padding: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: white;
+        resize: none;
+    }
+
+    .form-button {
+        display: block;
+        width: 100%;
+        padding: 10px;
+        background-color: #3b5998;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    .form-button:hover {
+        background-color: #2d4473;
+    }
+
+    @keyframes drip {
+        0% {
+            height: 10px;
+            width: 10px;
+            bottom: -10px;
+            opacity: 1;
+        }
+        50% {
+            height: 20px;
+            width: 5px;
+            bottom: -30px;
+            opacity: 0.5;
+        }
+        100% {
+            height: 10px;
+            width: 10px;
+            bottom: -10px;
+            opacity: 1;
+        }
+    }
+</style>
+
+<div class="reminder-container">
+    <h1>Add Reminder for {{ medication.name }}</h1>
+    <form method="post">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="{{ form.reminder_time.id_for_label }}" class="form-label">Reminder Time:</label>
+            {{ form.reminder_time }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.notes.id_for_label }}" class="form-label">Notes:</label>
+            <textarea id="{{ form.notes.id_for_label }}" name="{{ form.notes.html_name }}" class="form-textarea">{{ form.notes.value }}</textarea>
+        </div>
+        <button type="submit" class="form-button">Save</button>
+    </form>
+</div>
+
+<!-- Include Flatpickr JS -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Flatpickr on the reminder_time input field
+    flatpickr('input[name="reminder_time"]', {
+        enableTime: true,
+        dateFormat: "H:i",
+    });
+
+    // Check reminders and activate notifications
+    function checkReminders() {
+        var reminders = document.querySelectorAll('input[name="reminder_time"]');
+        reminders.forEach(function(reminder) {
+            var reminderTime = new Date(reminder.value);
+            var currentTime = new Date();
+            if (reminderTime.getHours() === currentTime.getHours() && reminderTime.getMinutes() === currentTime.getMinutes()) {
+                // Activate device notification here
+                alert('Reminder: ' + reminder.parentElement.querySelector('textarea[name="notes"]').value);
+            }
+        });
+    }
+
+    // Check reminders every minute
+    setInterval(checkReminders, 60000); // 60000 milliseconds = 1 minute
+});
+</script>
+
+{% endblock %}

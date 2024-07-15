@@ -1,0 +1,313 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}Breast Cancer Prediction Form{% endblock %}
+
+{% block content %}
+
+<style>
+    section {
+        text-align: center;
+    }
+
+    .container {
+        border: 1px solid #6c8ece;
+        background-color: rgb(242, 236, 252);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .form-group {
+        margin-bottom: 20px;
+    }
+
+    label {
+        font-weight: bold;
+    }
+
+    .btn {
+        background-color: #a0bde9;
+        width: 90%;
+        margin-left: 5%;
+        margin-top: 20px;
+        border-radius: 5px;
+    }
+
+    .btn:hover {
+        background-color: #a0bde9;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .btn {
+            width: 70%;
+            margin-left: 15%;
+            margin-top: 10px;
+        }
+
+        #id_radius_mean,
+        #id_texture_mean,
+        #id_perimeter_mean,
+        #id_area_mean,
+        #id_smoothness_mean,
+        #id_compactness_mean,
+        #id_concavity_mean,
+        #id_concave_points_mean,
+        #id_symmetry_mean,
+        #id_fractal_dimension_mean,
+        #id_radius_se,
+        #id_texture_se,
+        #id_perimeter_se,
+        #id_area_se,
+        #id_smoothness_se,
+        #id_compactness_se,
+        #id_concavity_se,
+        #id_concave_points_se,
+        #id_symmetry_se,
+        #id_fractal_dimension_se,
+        #id_radius_worst,
+        #id_texture_worst,
+        #id_perimeter_worst,
+        #id_area_worst,
+        #id_smoothness_worst,
+        #id_compactness_worst,
+        #id_concavity_worst,
+        #id_concave_points_worst,
+        #id_symmetry_worst,
+        #id_fractal_dimension_worst {
+            width: 100%;
+            max-width: 100%;
+        }
+    }
+</style>
+
+<section>
+    <h1>Breast Cancer Prediction Form</h1>
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_radius_mean">Radius Mean:</label>
+                        {{ form.radius_mean }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_texture_mean">Texture Mean:</label>
+                        {{ form.texture_mean }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_perimeter_mean">Perimeter Mean:</label>
+                        {{ form.perimeter_mean }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_area_mean">Area Mean:</label>
+                        {{ form.area_mean }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_smoothness_mean">Smoothness Mean:</label>
+                        {{ form.smoothness_mean }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_compactness_mean">Compactness Mean:</label>
+                        {{ form.compactness_mean }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_concavity_mean">Concavity Mean:</label>
+                        {{ form.concavity_mean }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_concave_points_mean">Concave Points Mean:</label>
+                        {{ form.concave_points_mean }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_symmetry_mean">Symmetry Mean:</label>
+                        {{ form.symmetry_mean }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_fractal_dimension_mean">Fractal Dimension Mean:</label>
+                        {{ form.fractal_dimension_mean }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_radius_se">Radius SE:</label>
+                        {{ form.radius_se }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_texture_se">Texture SE:</label>
+                        {{ form.texture_se }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_perimeter_se">Perimeter SE:</label>
+                        {{ form.perimeter_se }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_area_se">Area SE:</label>
+                        {{ form.area_se }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_smoothness_se">Smoothness SE:</label>
+                        {{ form.smoothness_se }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_compactness_se">Compactness SE:</label>
+                        {{ form.compactness_se }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_concavity_se">Concavity SE:</label>
+                        {{ form.concavity_se }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_concave_points_se">Concave Points SE:</label>
+                        {{ form.concave_points_se }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_symmetry_se">Symmetry SE:</label>
+                        {{ form.symmetry_se }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_fractal_dimension_se">Fractal Dimension SE:</label>
+                        {{ form.fractal_dimension_se }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_radius_worst">Radius Worst:</label>
+                        {{ form.radius_worst }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_texture_worst">Texture Worst:</label>
+                        {{ form.texture_worst }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_perimeter_worst">Perimeter Worst:</label>
+                        {{ form.perimeter_worst }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_area_worst">Area Worst:</label>
+                        {{ form.area_worst }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_smoothness_worst">Smoothness Worst:</label>
+                        {{ form.smoothness_worst }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_compactness_worst">Compactness Worst:</label>
+                        {{ form.compactness_worst }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_concavity_worst">Concavity Worst:</label>
+                        {{ form.concavity_worst }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_concave_points_worst">Concave Points Worst:</label>
+                        {{ form.concave_points_worst }}
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_symmetry_worst">Symmetry Worst:</label>
+                        {{ form.symmetry_worst }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_fractal_dimension_worst">Fractal Dimension Worst:</label>
+                        {{ form.fractal_dimension_worst }}
+                    </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+        
+    </form>
+</section>
+{% endblock %}
+

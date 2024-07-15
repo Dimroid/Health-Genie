@@ -1,0 +1,1009 @@
+{% load static %}
+<!DOCTYPE html>
+
+<html class="no-js" lang="zxx">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>Dimroid - HealthGenie &amp; Health Genie Powered by AI</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Place favicon.ico in the root directory -->
+        <link rel="shortcut icon" type="image/x-icon" href="https://html.rrdevs.net/medilix/assets/imgs/favicon.svg">
+        <!-- CSS here -->
+        <link rel="stylesheet" href="{% static "Home/bootstrap.min.css"  %}">
+        <link rel="stylesheet" href="{% static "Home/animate.min.css"  %}">
+        <link rel="stylesheet" href="{% static "Home/swiper.min.css"  %}">
+        <link rel="stylesheet" href="{% static "Home/magnific-popup.css"  %}">
+        <script src="https://kit.fontawesome.com/9b8147f8d2.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="{% static "Home/spacing.css"  %}" >
+        <link rel="stylesheet" href="{% static "Home/odometer-theme-default.css"  %}">
+        <link rel="stylesheet" href="{% static "Home/main.css"  %}">
+        <link rel="stylesheet" href="{% static "Home/style.css"  %}">
+        <link rel="stylesheet" href="{% static "Home/form.css" %}">
+
+    </head>
+
+<body class="body-1">
+
+
+
+<!-- preloader start -->
+<div id="preloader" style="display: none;">
+    <div class="preloader-close">x</div>
+    <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+    </div>
+</div>
+<!-- preloader end -->
+
+<!-- preloader start -->
+<div class="loading-form">
+    <div class="sk-three-bounce">
+        <div class="sk-child sk-bounce1"></div>
+        <div class="sk-child sk-bounce2"></div>
+        <div class="sk-child sk-bounce3"></div>
+    </div>
+</div>
+<!-- preloader end -->
+
+<!-- Backtotop start -->
+<div id="scroll-percentage" style="background: conic-gradient( var(--rr-theme-primary) 0%, var(--rr-color-900) 0%);">
+    <span id="scroll-percentage-value">0%</span>
+</div>
+<!-- Backtotop end -->
+
+<!-- Offcanvas area start -->
+<div class="fix">
+    <div class="offcanvas__area">
+        <div class="offcanvas__wrapper" style="background-color: lightblue;">
+            <div class="offcanvas__content">
+                <div class="offcanvas__top d-flex justify-content-between align-items-center">
+                    <div class="offcanvas__logo">
+                        <a href="#">
+                            <img src="{% static "Home/Health Genie.png" %}", style="width: 200px;" alt="logo not found">
+                        </a>
+                    </div>
+                    <div class="offcanvas__close">
+                        <button class="offcanvas-close-icon animation--flip">
+                                <span class="offcanvas-m-lines">
+                              <span class="offcanvas-m-line line--1"></span><span class="offcanvas-m-line line--2"></span><span class="offcanvas-m-line line--3"></span>
+                                </span>
+                        </button>
+                    </div>
+                </div>
+
+                <div style="font-size: 15px; color: #000;" class="offcanvas__auth">
+                    <ul>
+                        <li><a href="{% url 'login' %}"><b>Login</b></a></li>
+                    </ul>
+                </div>
+                <p></p>
+
+                <div style="font-size: 15px; color: #000;" class="offcanvas__auth">
+                    <ul>
+                        <li><a href="{% url 'register' %}"><b>Sign-Up</b></a></li>
+                    </ul>
+                </div>
+
+                <div class="mobile-menu fix" style="color: #000;"></div>
+                <div class="offcanvas__social">
+                    <h4 class="offcanvas__title mb-20" style="color: #000;">Subscribe &amp; Follow</h4>
+                    <p class="mb-30" style="color: #000;">Medical practices evolved over millennia, from ancient civilizations like Egypt and Mesopotamia to the groundbreaking</p>
+                    <ul class="header-top-socail-menu d-flex">
+                        <li><a href="https://www.facebook.com/"><i class="fab fa-facebook-f"></i></a></li>
+                        <li><a href="https://twitter.com/"><i class="fab fa-twitter"></i></a></li>
+                        <li><a href="https://www.pinterest.com/"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                        <li><a href="https://vimeo.com/"><i class="fa-brands fa-vimeo-v"></i></a></li>
+                    </ul>
+                </div>
+
+                
+
+            </div>
+        </div>
+    </div>
+</div>
+<div class="offcanvas__overlay"></div>
+<div class="offcanvas__overlay-white"></div>
+<!-- Offcanvas area start -->
+
+
+<!-- Header area start -->
+<header>
+    <div id="header-sticky" class="header__area header-1">
+        <div class="container">
+            <div class="mega__menu-wrapper p-relative">
+                <div class="header__main">
+                    <div class="header__logo">
+                        <a href="#">
+                            <div class="logo">
+                                <img src="{% static "Home/Health Genie.png" %}", style="width:160%;" alt="logo not found">
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="mean__menu-wrapper d-none d-lg-block">
+                        <div class="main-menu">
+                            <nav id="mobile-menu" style="display: block;">
+                                <ul>
+                                    <li class="" style="color: #000;">
+                                        <a href="#">Home</a>
+                                    
+                                    </li>
+                                    <li class="">
+                                        <a href="#service">Pages</a>
+                                       
+                                    </li>
+                                    <li class="has-dropdown">
+                                        <a href="#fourth-section">Services</a>
+                                        <ul class="submenu">
+                                            <li><a href="#">Service</a></li>
+                                            <li><a href="#">Services Details</a></li>
+                                        </ul>
+                                    </li>
+                                    <li class=""><a href="#footer-section">contact</a></li>
+                                    <!-- <li class="signup__hide">
+                                        <a href="{% url "register" %}">Sign-Up</a>
+                                    </li>
+                                 -->
+                                    <li class="signup__hide" style="display: none;">
+                                        <a href="{% url "login" %}">Login</a>
+                                    </li>
+                                
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+
+                    <div class="header__right">
+                        <div class="header__action d-flex align-items-center">
+                            <div style="margin-right: 0px;" class="header__btn-wrap d-none d-sm-inline-flex">
+                                <a href="{% url "login" %}" class="rr-btn rr-btn__primary">
+                                    <span class="btn-wrap">
+                                        <span class="text-one">Login </span>
+                                        <span class="text-two">Login </span>
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div style="margin-left: 10px;" class="header__btn-wrap d-none d-sm-inline-flex">
+                                <a href="{% url "register" %}" class="rr-btn rr-btn__primary">
+                                    <span class="btn-wrap">
+                                        <span class="text-one">Sign-up </span>
+                                        <span class="text-two">Sign-up </span>
+                                    </span>
+                                </a>
+                            </div>
+
+                            <div class="header__hamburger ml-20 d-xl-none">
+                                <div class="sidebar__toggle" style="margin-right: 30px;">
+                                    <a class="bar-icon" href="javascript:void(0)">
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
+<!-- Header area end -->
+
+<!-- Body main wrapper start -->
+<main class="body-background"> <!--for use #F2F7FD..  you can remove it any time-->
+    <!-- Banner area start -->
+    <section class="banner banner__space overflow-hidden">
+        <div class="container">
+            <div class="banner__shape">
+                <img src="{% static "Home/banner-shape.png" %}" alt="image not found">
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="banner__content text-center">
+                        <h1 class="mb-25 mb-xs-20 title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 100.977px 50px; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">Health</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 91.3516px 50px; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">Genie,</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 246.555px 50px; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">Your</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 37.4688px 50px; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">AI</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 69.7812px 50px; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">Doctor</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 91.8047px 50px; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">Companion</div></h1>
+                        <a href="#third-sec" class="rr-btn">
+                            <div class="panel wow" style="display: none; animation-name: panel;"></div>
+                            <span class="btn-wrap">
+                                <span class="text-one">Read More <i class="fa-solid fa-plus"></i></span>
+                                <span class="text-two">Read More <i class="fa-solid fa-plus"></i></span>
+                            </span>
+                        </a>
+                        <div class="banner__media mt-45 mt-xs-35 position-relative">
+                            <div class="panel wow" style="visibility: visible; animation-name: panel;"></div>
+                            <img style="border-radius: 10px;" class="img-fluid" data-parallax="{&quot;scale&quot;: 1.2, &quot;smoothness&quot;: 15}" src="{% static "Home/Health_AI_.jpg" %}" alt="images not found">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Banner area end -->
+
+    <!--  pages start -->
+    <section id="service">
+
+        <style>
+            
+            body {
+                color: #000;
+            }
+
+
+            .card {
+    width: 100%;
+    max-width: 270px;
+    height: auto;
+}
+
+@media (max-width: 1199px) {
+    .card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 991px) {
+    .card {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 767px) {
+    .card {
+        max-width: 100%;
+    }
+    
+}
+
+.card-body {
+    overflow-y: scroll;
+    max-height: 300px; /* Adjust as needed */
+}
+
+.card-img-top {
+    width: 65px;
+    height: 65px;
+    margin-top: 30px;
+    margin-left: 10px;
+}
+
+.row {
+    justify-content: center;
+}
+
+    </style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+            <div class="card rounded-5 h-100">
+                <img class="card-img-top fa-shake mx-auto mt-3" src="{% static 'Home/service__item-1.png' %}" style="width: 65px; height: 65px;" alt="icon not found">
+                <div class="card-body overflow-auto" style="overflow-y: scroll;">
+                    <h5 class="card-title">Symptom Check</h5>
+                    <p class="card-text">Users can now have access to <strong><i> Immediate preliminary diagnoses</i></strong> without visiting a doctor, saving time and providing peace of mind.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+            <div class="card rounded-5 h-100">
+                <img class="card-img-top fa-shake mx-auto mt-3" src="{% static 'Home/service__item-2.png' %}" style="width: 65px; height: 65px;" alt="icon not found">
+                <div class="card-body overflow-auto" style="overflow-y: scroll;">
+                    <h5 class="card-title">Health Pal</h5>
+                    <p class="card-text">The conversational <strong><i>AI Powered Chatbot</i></strong> offers a user-friendly way to ask health-related questions and receive instant, accurate responses, making health management more accessible.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+            <div class="card rounded-5 h-100">
+                <img class="card-img-top fa-shake mx-auto mt-3" src="{% static 'Home/service__item-3.png' %}" style="width: 65px; height: 65px;" alt="icon not found">
+                <div class="card-body overflow-auto" style="overflow-y: scroll;">
+                    <h5 class="card-title">Calory Calculator</h5>
+                    <p class="card-text">Users on a diet routine or anyone watching their diet intake can simply take pictures of their meals to <strong><i> estimate calorie content,</i></strong> making it easier to track and manage their daily caloric intake.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 col-lg-3 mb-3">
+            <div class="card rounded-5 h-100">
+                <img class="card-img-top fa-shake mx-auto mt-3" src="{% static 'Home/service__item-4.png' %}" style="width: 65px; height: 65px;" alt="icon not found">
+                <div class="card-body overflow-auto" style="overflow-y: scroll;">
+                    <h5 class="card-title">Workout Tips</h5>
+                    <p class="card-text">An AI exercise recommender that provides tailored workout recommendations based on user's body weight, age, and other factors. It suggests appropriate exercise intensity and precautions to help avoid injuries, ensuring safe and effective fitness routines.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+       </section>
+            
+
+    <!-- pages end -->
+
+    <!--more about-the-medicals area start -->
+    <section id="third-sec" class="about-us section-space overflow-hidden">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <div class="section__title-wrapper about-us__content">
+                        <h5 class="section__subtitle color-theme-primary mb-15 mb-xs-10 title-animation" style="perspective: 100px;"><img src="{% static "Home/heart.png" %}" alt="icon not found" class="img-fluid"> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;"> About</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">us</div></h5>
+                        <h2 class="section__title mb-30 mb-xs-20 title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Nurture</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Nature</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Blossoming</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">in</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Health</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">and</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Happiness</div></h2>
+
+                        <p class="mb-30 mb-xs-25">The first ever  AI-powered virtual health assistant to succeed at  providing preliminary health assessments, symptom checking, personalized health recommendations, and workout training advice to enhance patient care and reducing the burden on healthcare professionals.</p>
+
+                        <div class="skill-one__progress">
+                            <div class="skill-one__progress-single">
+                                <h5 class="skill-one__progress-title mb-10">AI Diagnosis</h5>
+                                <div class="bar">
+                                    <div class="bar-inner count-bar counted" data-percent="100%">
+                                        <div class="count-text">100%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-one__progress-single">
+                                <h5 class="skill-one__progress-title mb-10">Calory Calculator </h5>
+                                <div class="bar">
+                                    <div class="bar-inner count-bar counted" data-percent="100%">
+                                        <div class="count-text">100%</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="skill-one__progress-single">
+                                <h5 class="skill-one__progress-title mb-10">Working and Diet Tips</h5>
+                                <div class="bar">
+                                    <div class="bar-inner count-bar counted" data-percent="100%">
+                                        <div class="count-text">100%</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-xl-6">
+                    <div class="about-us__media d-flex flex-column flex-sm-row align-items-sm-start align-items-center justify-content-xl-end justify-content-center">
+                        <img class="img-fluid about-us__media-big-shape" src="{% static "Home/shape-big.png" %}" alt="icon not found">
+
+                        <div class="about-us__media-experience-box__wrapper text-end">
+                            <div class="about-us__media-img img1">
+                                <img class="img-fluid shape downUp" src="{% static "Home/shape-2.png" %}" alt="icon not found">
+                                <img class="img-fluid" src="{% static "Home/Chatbot_AI_Img.webp" %}" alt="icon not found">
+                                <p></br></p>
+                                <img class="img-fluid" src="{% static "Home/AI_Diagnosing.jpeg" %}" alt="icon not found">
+                            </div>
+                           
+                        </div>
+                        <div class="about-us__media-img img2">
+                            <img class="img-fluid shape upDown" src="{% static "Home/shape-1.png" %}" alt="icon not found">
+                            <img class="img-fluid" src="{% static "Home/AI_Workout_img.webp" %}" alt="icon not found">
+                            <p></p></br>
+                            <img class="img-fluid" src="{% static "Home/Food_AI_Calorie.jpg" %}" alt="icon not found">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- about-us area end -->
+
+    <!-- treatment-process area start -->
+    <section class="treatment-process section-space__bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section__title-wrapper treatment-process__content text-center mb-60 mb-xs-40">
+                        <h2 class="section__title mb-20 mb-xs-15 title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Our</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Treatment</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Process</div></h2>
+                        <p class="mb-0">Your AI Doctor provides solutions to medical issues, aids in treating ailments, promotes health, and enhances quality of life, helping doctors lighten their workload and satisfies the needs of patients.</p>
+                    </div>
+
+                    <div class="treatment-process__media mb-30">
+                        <img class="img-fluid" data-parallax="{&quot;scale&quot;: 1.2, &quot;smoothness&quot;: 15}" src="{% static "Home/AI_Master_img.webp" %}" alt="image not found">
+                       
+                    </div>
+                </div>
+            </div>
+
+
+    <!-- pricing area start -->
+    <section class="pricing section-space__bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section__title-wrapper text-center mb-60 mb-xs-40">
+                        <h2 class="section__title mb-0 title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Cost</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Breakdown</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Summary</div></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mb-minus-30">
+                <div class="col-xl-4 col-md-6">
+                    <div class="pricing__item mb-30">
+                        <h3 class="mb-15 mb-xs-10">Basic</h3>
+
+                        <h2 class="pricing__item-price mb-25 mb-xs-20">$10 <span class="body-font">/month</span></h2>
+
+                        <!-- <p class="mb-20 pb-20 pricing__item__border-bottom">Limited Access to the packages</p> -->
+
+                        <div class="pricing__item-body">
+                            <ul>
+                                <li><i class="fa-solid fa-angle-right"></i> Symptom Checker</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Personalized Health Tips</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Virtual Health Assistant Chatbot</li>
+                                <li><i class="fa-solid fa-angle-right"></i> AI Health Suggestions</li>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="rr-btn mt-40 mt-xs-30">
+                            <span class="btn-wrap">
+                                <span class="text-one">Start now <i class="fa-solid fa-circle-plus"></i></span>
+                                <span class="text-two">Start now <i class="fa-solid fa-circle-plus"></i></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="pricing__item active mb-30">
+                        <h3 class="mb-15 mb-xs-10">Professional</h3>
+
+                        <h2 class="pricing__item-price mb-25 mb-xs-20">$30 <span class="body-font">/month</span></h2>
+
+                        <!-- <p class="mb-20 pb-20 pricing__item__border-bottom">Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum</p> -->
+
+                        <div class="pricing__item-body">
+                            <ul>
+                                <li><i class="fa-solid fa-angle-right"></i> All Basic Packages </li>
+                                <li><i class="fa-solid fa-angle-right"></i> Integration with Wearable Devices</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Emergency Alerts</li>
+                                <li><i class="fa-solid fa-angle-right"></i> Doctor Interaction</li>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="rr-btn mt-40 mt-xs-30">
+                            <span class="btn-wrap">
+                                <span class="text-one">Start now <i class="fa-solid fa-circle-plus"></i></span>
+                                <span class="text-two">Start now <i class="fa-solid fa-circle-plus"></i></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="col-xl-4 col-md-6">
+                    <div class="pricing__item mb-30">
+                        <h3 class="mb-15 mb-xs-10">Enterprise</h3>
+
+                        <h2 class="pricing__item-price mb-25 mb-xs-20">$50 <span class="body-font">/month</span></h2>
+
+                        <!-- <p class="mb-20 pb-20 pricing__item__border-bottom">Lorem Ipsum is simply dummy text the printing and typese Lorem Ipsum</p> -->
+
+                        <div class="pricing__item-body">
+                            <ul>
+                                <div style="font-size: 15px;">
+                                    <li><i class="fa-solid fa-angle-right"></i>Basic and Professional Package</li>
+                                    <li><i class="fa-solid fa-angle-right"></i>Workout Tips and training</li>
+                                    <li><i class="fa-solid fa-angle-right"></i>Diet Tracking</li>
+                                    <li><i class="fa-solid fa-angle-right"></i>Food Calorie Detection</li>
+                                </div>
+                            </ul>
+                        </div>
+
+                        <a href="#" class="rr-btn mt-40 mt-xs-30">
+                            <span class="btn-wrap">
+                                <span class="text-one">Start now <i class="fa-solid fa-circle-plus"></i></span>
+                                <span class="text-two">Start now <i class="fa-solid fa-circle-plus"></i></span>
+                            </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- pricing area end -->
+
+    <!-- services area start -->
+    <section id="fourth-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <div class="testimonial__media">
+                        <img class="img-fluid"  src="{% static "Home/Default_a_black_nurse_on_a_computer_in_a_lab_3.jpg" %}" alt="image not found">
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="swiper testimonial__slider mt-lg-40 mt-md-40 mt-sm-40 mt-xs-40 swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                        <div class="swiper-wrapper" id="swiper-wrapper-57d080cef270fcce" aria-live="off" style="transform: translate3d(-1136px, 0px, 0px); transition-duration: 0ms;"><div class="swiper-slide swiper-slide-duplicate swiper-slide-duplicate-active" data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 538px; margin-right: 30px;">
+                                <div class="testimonial__item">
+                                     
+
+                                    
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 538px; margin-right: 30px;">
+                                <div class="testimonial__item">
+                                     
+
+                                    <div class="testimonial__item-content mb-35 mb-xs-30">
+                                        <p class="mb-0"><h1>Personalized Health Tips</h1></br> Receive tailored health recommendations based on your data, lifestyle, and medical history. Our AI integrates with wearables for real-time tips on nutrition, exercise, and more, helping you make informed health decisions.</p>
+                                    </div>
+
+                                    <div class="testimonial__item-author d-flex align-items-center">
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 538px; margin-right: 30px;">
+                                <div class="testimonial__item">
+                                     
+
+                                    <div class="testimonial__item-content mb-35 mb-xs-30">
+                                        <p class="mb-0"><h1>Virtual Health Assistant</h1> </br>  Ask health-related questions and get instant responses with our AI chatbot. It also schedules appointments and sends reminders, providing reliable health information and support whenever you need it.</p>
+                                    </div>
+
+                                    <div class="testimonial__item-author d-flex align-items-center">
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            
+
+                            <div class="swiper-slide swiper-slide-prev swiper-slide-duplicate-next" data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 538px; margin-right: 30px;">
+                                <div class="testimonial__item">
+                                    
+                                    <div class="testimonial__item-content mb-35 mb-xs-30">
+                                    <p class="mb-0"><h1>Exercise Recommender </h1></br> Receive personalized workout recommendations based on your physical attributes. Our AI ensures safe and effective fitness routines, helping you achieve your goals while minimizing injury risk.</p>
+                                    </div>
+
+                                    <div class="testimonial__item-author d-flex align-items-center">
+                                        
+                                       
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="swiper-slide swiper-slide-active" data-swiper-slide-index="1" role="group" aria-label="2 / 2" style="width: 538px; margin-right: 30px;">
+                                <div class="testimonial__item">
+                                     
+
+                                    <div class="testimonial__item-content mb-35 mb-xs-30">
+                                        <p class="mb-0"><h1>Food Calorie Detection</h1></br>  Estimate meal calorie content with our AI using image recognition. Track your intake accurately and make healthier dietary choices, supporting your health and fitness goals effortlessly.</p>
+                                    </div>
+
+                                    <div class="testimonial__item-author d-flex align-items-center">
+                                      
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        <div class="swiper-slide swiper-slide-duplicate swiper-slide-next swiper-slide-duplicate-prev" data-swiper-slide-index="0" role="group" aria-label="1 / 2" style="width: 538px; margin-right: 30px;">
+                                <div class="testimonial__item">
+                                    
+                                </div>
+                            </div></div>
+                        <div class="testimonial__slider__arrow d-flex">
+                            <div class="testimonial__slider__arrow-prev" tabindex="0" role="button" aria-label="Previous slide" aria-controls="swiper-wrapper-57d080cef270fcce">
+                                <svg width="51" height="16" viewBox="0 0 51 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0.292893 7.29289C-0.0976311 7.68342 -0.0976311 8.31658 0.292893 8.70711L6.65685 15.0711C7.04738 15.4616 7.68054 15.4616 8.07107 15.0711C8.46159 14.6805 8.46159 14.0474 8.07107 13.6569L2.41421 8L8.07107 2.34315C8.46159 1.95262 8.46159 1.31946 8.07107 0.928932C7.68054 0.538408 7.04738 0.538408 6.65685 0.928932L0.292893 7.29289ZM1 9H51V7H1V9Z" fill="#071C3C"></path>
+                                </svg>
+                            </div>
+
+                            <div class="testimonial__slider__arrow-next" tabindex="0" role="button" aria-label="Next slide" aria-controls="swiper-wrapper-57d080cef270fcce">
+                                <svg width="51" height="16" viewBox="0 0 51 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M50.7071 7.29289C51.0976 7.68342 51.0976 8.31658 50.7071 8.70711L44.3431 15.0711C43.9526 15.4616 43.3195 15.4616 42.9289 15.0711C42.5384 14.6805 42.5384 14.0474 42.9289 13.6569L48.5858 8L42.9289 2.34315C42.5384 1.95262 42.5384 1.31946 42.9289 0.928932C43.3195 0.538408 43.9526 0.538408 44.3431 0.928932L50.7071 7.29289ZM50 9H2.98023e-08V7H50V9Z" fill="#071C3C"></path>
+                                </svg>
+                            </div>
+                        </div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial area end -->
+
+    <!-- ask-question area start -->
+    <section class="ask-question section-space__top">
+     </section>
+
+     
+
+  
+    <h1 style="text-align: center; top: 10%;">Mindblowing AI Features to Expect</h1>
+            
+    <!-- team area start -->
+    <section class="team section-space__bottom">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="section__title-wrapper text-center mb-60 mb-xs-40">
+                        <h2 class="section__title mb-0 title-animation" style="perspective: 100px;"><div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Physician</div> <div style="position: relative; display: inline-block; translate: none; rotate: none; scale: none; transform-origin: 50% 0%; transform: translate(0px, 10px); opacity: 0; visibility: hidden;">Directory</div></h2>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <div class="swiper team__slider swiper-initialized swiper-horizontal swiper-pointer-events swiper-backface-hidden">
+                        <div class="swiper-wrapper" id="swiper-wrapper-2a64fb2d5f5981f8" aria-live="off" style="transform: translate3d(-383px, 0px, 0px); transition-duration: 0ms;">
+                            <div class="swiper-slide swiper-slide-prev" role="group" aria-label="1 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/cancer.jpeg" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Cancer Detection</h4>
+                                            <p class="mb-0">Leveraging advanced machine learning and AI to enhance early diagnosis, improve treatment outcomes, and save lives.</p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/"> 
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- <div class="swiper-slide swiper-slide-active" role="group" aria-label="2 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/Map.png" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Nearby Hospital Location</h4>
+                                            <p class="mb-0">Find nearby hospitals quickly with our AI-powered tool. Enter or enable your location to get a list of hospitals with addresses and contact info..</p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div> -->
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="2 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/brain_tumor.jpg" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Brain Tumour Detection</h4>
+                                            <p class="mb-0"> Our AI-powered tool allows you to upload medical images for rapid and accurate brain tumor diagnosis. </p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="2 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/Diabetes.webp" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Diabetes Prediction</h4>
+                                            <p class="mb-0"> Our AI-powered tool allows you to upload medical images and warns you of potential diabetes risk. </p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-active" role="group" aria-label="2 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/Employment.jpeg" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Employment Opportunities</h4>
+                                            <p class="mb-0"> Healthcare professionals can now interact with clients in need of medical advice, offer personalized advice in exchange for earnings while creating meaningful job opportunities. </p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/Chatbot_Img.jpg" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">User Friendly AI Chabot </h4>
+                                            <p class="mb-0"> Leveraging Llama 3 model to provide comprehensive solutions in the fields of medical diagnosis, workout training and general inquiries with swift response to health issues</p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/Symptom_Checker.jpeg" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Symptom Checker </h4>
+                                            <p class="mb-0"> Our platforms help medical providers easen their work by diagnosing symptoms with the use of llama3 model</p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/amala7.jpeg" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">Food Calorie Detection</h4>
+                                            <p class="mb-0"> Leveraging Llama 3 model to provide accurate calories calculation by uploading an image of your food to help keep track of your weight</p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="swiper-slide swiper-slide-next" role="group" aria-label="3 / 6" style="width: 343px; margin-right: 40px;">
+                                <div class="team__item">
+                                    <div class="team__item-media">
+                                        <img class="img-fluid" src="{% static "Home/AI_Drug Prescription.webp" %}" alt="image not found">
+                                    </div>
+
+                                    <div class="team__item-content">
+                                        <div class="team__item-content-left">
+                                            <h4 class="mb-10">AI Drug Prescription</h4>
+                                            <p class="mb-0">Leveraging AI for precise medication recommendations tailored to your unique needs, revolutionizing the way you receive healthcare.</p>
+                                        </div>
+
+                                        <div class="team__item-content-right">
+                                            <div class="team__item-content-share">
+                                                <a href="https://x.com/">
+                                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                                        <path d="M9.52217 6.77686L15.4785 0.00195312H14.0671L8.89516 5.88451L4.76437 0.00195312H0L6.24656 8.89742L0 16.002H1.41155L6.87321 9.78977L11.2356 16.002H16L9.52183 6.77686H9.52217ZM7.58887 8.97579L6.95596 8.09L1.92015 1.04169H4.0882L8.15216 6.72991L8.78507 7.61569L14.0677 15.0095H11.8997L7.58887 8.97613V8.97579Z" fill="#071C3C"></path>
+                                                    </svg>
+                                                </a>
+                                                <a href="https://www.facebook.com/"><i class="fa-brands fa-facebook-f"></i></a>
+                                                <a href="https://www.instagram.com/"><i class="fa-brands fa-instagram"></i></a>
+                                                <a href="https://bd.linkedin.com/"><i class="fa-brands fa-linkedin-in"></i></a>
+                                            </div>
+                                            <button><i class="fa-solid fa-caret-down fa-2x"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        
+                            
+                        </div>
+                        <div class="team__scrollbar mt-80 mt-sm-60 mt-xs-45 swiper-scrollbar-horizontal" style="opacity: 0; transition-duration: 400ms;"><div class="swiper-scrollbar-drag" style="width: 147.476px; transform: translate3d(50.8857px, 0px, 0px); transition-duration: 0ms;"></div></div>
+                    <span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- team area end -->
+
+
+</main>
+<!-- Body main wrapper end -->
+<!-- Footer area start -->
+<footer id="footer-section" style="background-color: rgb(102, 103, 184);" class="section-relative section-top-66 section-bottom-34 page-footer bg-accent context-dark">
+    <div class="container">
+      <div class="row justify-content-md-center text-lg-start">
+        <div class="col-md-8 col-lg-12">
+          <div class="row row-50 justify-content-sm-center row-50">
+            <div class="col-sm-10 col-lg-4 text-start order-lg-3 inset-lg-left-50">
+              <h6>Newsletter</h6>
+              <hr class="text-subline">
+              <p style="color: antiquewhite;">Enter your email address to receive up-to-date news, new patient information and other useful stuff, delivered right to your inbox.</p>
+              <form class="rd-mailform" data-form-output="form-output-global" data-form-type="subscribe" method="post" action="{% url 'subscribe' %}" novalidate="novalidate">
+                {% csrf_token %}
+                <div class="form-wrap">
+                    <div class="input-group input-group-sm">
+                        <input class="form-input text-gray-darker form-control-has-validation" id="footer-subscribe-form-email" type="email" data-constraints="@Required @Email" name="email">
+                        <span class="form-validation"></span>
+                        <!-- <label class="form-label text-gray-darker rd-input-label" for="footer-subscribe-form-email">Your e-mail...</label> -->
+                        <span class="input-group-btn">
+                            <button style="border-radius: 0px 40px 40px 0px;" class="btn btn-sm btn-java" type="submit">Subscribe</button>
+                        </span>
+                    </div>
+                </div>
+            </form>
+            
+            </div>
+            <div class="col-sm-10 text-sm-start col-lg-4 order-lg-2">
+              <h6>contact us</h6>
+              <hr class="text-subline">
+              </br>
+              <div class="text-center text-xl-start">
+                <address class="contact-info d-md-inline-block text-start">
+                  <div class="p unit unit-spacing-xxs flex-row">
+                    <div class="unit-left"><span class="icon icon-xxs mdi mdi-phone text-java"></span></div>
+                    <div class="unit-body"><a class="link-gray-light" href="tel:#">(+234) 807-244-4961</a><span class="text-gray-light">, </span></div>
+                  </div>
+                  <div class="p unit flex-row unit-spacing-xxs">
+                    <div class="unit-left"><span class="icon icon-xxs mdi mdi-map-marker text-java"></span></div>
+                    <div class="unit-body"><a class="link-gray-light" href="#">16, Ajani Akingbogun Street, Egbeda, Lagos</a></div>
+                  </div>
+                  <div class="p unit unit-spacing-xxs flex-row offset-top-16">
+                    <div class="unit-left"><span class="icon icon-xxs mdi mdi-email-outline text-java"></span></div>
+                    <div class="unit-body"><a class="link-java" href="mailto:ukwedjedimeji@gmail.com">Dimroid</a></div>
+                  </div>
+                </address>
+              </div>
+            </div>
+            <div class="col-sm-10 col-lg-4 order-lg-1">
+              <!-- Footer brand-->
+              <div class="footer-brand">
+                <!--Brand--><a class="brand" href="https://github.com/Dimroid"><img class="brand-logo-dark" src="{% static "Home/Health Genie.png" %}" alt="" width="150" height="52"><img style="background-color: rgb(174, 218, 218); padding: 7px; border-radius: 20px; width: 215px;" class="brand-logo-light" src="{% static "Home/Health Genie.png" %}" alt="" width="150" height="52"></a>
+              </div>
+              <div class="offset-top-50 offset-md-top-90">
+                     <div class="icon-row">
+                          <div class="icon-container"><a href=""><i class="fa-brands fa-facebook fa-2x"></i></a></div>
+                          <div class="icon-container"><a href=""><i class="fa-brands fa-twitter fa-2x"></i></a></div>
+                          <div class="icon-container"><a href=""><i class="fa-brands fa-linkedin fa-2x"></i></a></div>
+                          <div class="icon-container"><a href=""><i class="fa-brands fa-whatsapp fa-2x"></i></a></div>
+
+                     </div>
+
+                
+                
+              
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="container offset-top-50 offset-md-top-60">
+      <p class="rights text-gray text-lg-start"><span>©&nbsp;</span><span class="copyright-year">2024</span><span>.&nbsp;</span><span>All Rights Reserved</span><span>.&nbsp;</span><a class="link-gray" href="#">Privacy Policy</a></p>
+    </div>
+  </footer>
+<!-- Footer area end -->
+
+<!-- JS here -->
+<script src="{% static "Home/jquery-3.7.1.min.js" %}" ></script>
+<script src="{% static "Home/waypoints.min.js" %}" ></script>
+<script src="{% static "Home/bootstrap.bundle.min.js" %}"></script>
+<script src="{% static "Home/meanmenu.min.js" %}" ></script>
+<script src="{% static "Home/odometer.min.js" %}"></script>
+<script src="{% static "Home/swiper.min.js" %}"></script>
+<script src="{% static "Home/wow.js" %}"></script>
+<script src="{% static "Home/magnific-popup.min.js" %}"> </script>
+<script src="{% static "Home/type.js" %}"> </script>
+<script src="{% static "Home/nice-select.min.js" %}"> </script>
+<script src="{% static "Home/jquery-ui.min.js" %}"> </script>
+<script src="{% static "Home/jquery.appear.js" %}"> </script>
+<script src="{% static "Home/parallax.min.js" %}"> </script>
+<script src="{% static "Home/parallax-scroll.js" %}"> </script>
+<script src="{% static "Home/gsap.min.js" %}"> </script>
+<script src="{% static "Home/ScrollTrigger.min.js" %}"> </script>
+<script src="{% static "Home/SplitText.js" %}"> </script>
+<script src="{% static "Home/tween-max.min.js" %}"> </script>
+<script src="{% static "Home/draggable.min.js" %}"> </script>
+<script src="{% static "Home/smoothscroll.js" %}"> </script>
+<script src="{% static "Home/ajax-form.js" %}"> </script>
+<script src="{% static "Home/main.js" %}"> </script><div id="ui-datepicker-div" class="ui-datepicker ui-widget ui-widget-content ui-helper-clearfix ui-corner-all"></div>
+
+
+</body></html>
+

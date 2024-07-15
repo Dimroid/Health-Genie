@@ -1,0 +1,127 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}Symptom Checker{% endblock %}
+
+{% block content %}
+<style>
+section {
+    text-align: center;
+}
+
+#id_Symptom_History {
+    width: 300px;
+    height: 200px;
+}
+
+#id_symptoms {
+    width: 300px;
+    height: 200px;
+}
+
+.container {
+    border: 1px solid #6c8ece;
+    background-color: rgb(242, 236, 252);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 20px;
+}
+
+.btn {
+    background-color: #a0bde9;
+    width: 70%;
+    margin-left: 15%;
+    margin-top: 20px;
+}
+
+h5 {
+    font-weight: bold;
+}
+
+.btn:hover {
+    background-color: #a0bde9;
+}
+
+#id_duration,
+#id_severity {
+    width: 300px;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 10px;
+        border-radius: 10px;
+    }
+
+    .btn {
+        width: 70%;
+
+        margin-left: 15%;
+        margin-top: 10px;
+    }
+
+    #id_Symptom_History,
+    #id_symptoms,
+    #id_duration,
+    #id_severity {
+        width: 100%;
+        max-width: 100%;
+    }
+}
+</style>
+
+<section>
+    <h5>For more accurate results, fill in your information in the <a href="{% url 'edit' %}"><p><u>Edit Section</u></p></a></h5>
+    <br>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_duration">Duration:</label>
+                        <br>
+                        {{ form.duration }}
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <label for="id_symptoms">Symptoms:</label>
+                        <br>
+                        {{ form.symptoms }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_severity">Severity:</label>
+                        <br>
+                        {{ form.severity }}
+                    </div>
+                    <br><br>
+                    <div class="form-group">
+                        <label for="id_Symptom_History">Symptom History:</label>
+                        {{ form.Symptom_History }}
+                    </div>
+                </div>
+                 
+        <button type="submit" class="btn" >Submit</button>
+            </div>
+        </div>
+
+       
+      
+    </form>
+</section>
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+                <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                    {{ message }}
+                    <span class="close" onclick="this.parentElement.style.display='none';">&times;</span>
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

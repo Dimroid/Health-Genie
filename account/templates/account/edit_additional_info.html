@@ -1,0 +1,137 @@
+{% extends "account/dashboard.html" %}
+
+{% block title %}Edit Additional Profile{% endblock %}
+
+{% block content %}
+
+
+<style>
+
+    body{
+        text-align: center;
+       
+    }
+
+    h2 {
+        margin-top: 20px;
+        font-weight: bold;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+    label {
+        margin-right: 20px;
+        margin-top: 30px;
+    }
+
+    #id_age, #id_gender, #id_additional_information, #id_medical_history {
+        width: 100%;
+        max-width: 350px;
+        margin: auto;
+    }
+
+    #id_additional_information, #id_medical_history {
+        height: 250px;
+    }
+
+    button {
+        margin-bottom: 10px;
+        color: #000;
+        background-color: #a0bde9;
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+        border-radius: 5%;
+        height: 40px;
+    }
+
+    p {
+        font-weight: bold;
+        font-family: cursive;
+    }
+
+    .btn-p {
+        font-weight: normal;
+        font-family: sans-serif;
+        
+    }
+
+    .container {
+     
+        border: 1px solid #6c8ece;
+        background-color: rgb(242, 236, 252);
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+        margin-top: 40px;
+    }
+
+    @media (max-width: 767px) {
+        label {
+            display: block;
+            text-align: left;
+            margin-right: 0;
+        }
+
+        #id_age, #id_gender, #id_additional_information, #id_medical_history {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            margin-left: 0;
+      
+            
+        }
+
+        @media only screen and (min-width: 290px) and (max-width: 366px) { 
+
+            button {
+                height: 100%;
+            }
+        }
+
+        @media only screen and (min-width: 1022px) and (max-width: 1024px) { 
+       
+        }
+    }
+</style>
+<title>Edit Additional Profile</title>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Edit your additional information</h2>
+        <hr>
+        <form method="post">
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_age"><p>Age:</p></label>
+                        {{ additional_info_form.age }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_medical_history"><p>Medical History:</p></label>
+                        {{ additional_info_form.medical_history }}
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="form-group">
+                        <label for="id_gender"><p>Gender:</p></label>
+                        {{ additional_info_form.gender }}
+                    </div>
+                    <div class="form-group">
+                        <label for="id_additional_information"><p>Additional Information:</p></label>
+                        {{ additional_info_form.additional_information }}
+                    </div>
+                </div>
+            </div>
+            <button class="btn gap-2 col-6 mx-auto" style="background-color: #a0bde9"; type="submit"><p class="btn-p">Save changes</p></button>
+        </form>
+    </div>
+
+
+
+{% endblock %}

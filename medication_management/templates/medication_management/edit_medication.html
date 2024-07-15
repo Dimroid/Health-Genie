@@ -1,0 +1,120 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}Edit Medication{% endblock %}
+
+{% block content %}
+<style>
+    .medication-form {
+        max-width: 500px;
+        margin: 0 auto;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        background-color: #f9f9f9;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+    
+    .medication-label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .medication-input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .medication-button {
+        padding: 10px 20px;
+        background-color: #3b5998;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    .medication-button:hover {
+        background-color: #2d4473;
+    }
+
+    .error-message {
+        color: red;
+        margin-top: 5px;
+    }
+
+    .medication-link {
+        display: block;
+        margin-top: 10px;
+        color: #3b5998;
+        text-decoration: none;
+    }
+
+    .medication-link:hover {
+        text-decoration: underline;
+    }
+</style>
+
+<h1 style="text-align: center; color: #2d4473; font-weight:bold; " >Edit Medication</h1>
+<form method="post" class="medication-form">
+    {% csrf_token %}
+
+    <label for="id_name" class="medication-label">Name:</label>
+    <input type="text" id="id_name" name="name" value="{{ form.name.value }}" class="medication-input">
+    <span class="error-message">{{ form.name.errors }}</span>
+
+    <label for="id_dosage" class="medication-label">Dosage:</label>
+    <input type="text" id="id_dosage" name="dosage" value="{{ form.dosage.value }}" class="medication-input">
+    <span class="error-message">{{ form.dosage.errors }}</span>
+
+    <label for="id_frequency" class="medication-label">Frequency:</label>
+    <input type="text" id="id_frequency" name="frequency" value="{{ form.frequency.value }}" class="medication-input">
+    <span class="error-message">{{ form.frequency.errors }}</span>
+
+    <label for="start_date" class="medication-label">Start date:</label>
+    {{ form.start_date}}
+    <span class="error-message">{{ form.start_date.errors }}</span>
+
+    <label for="end_date" class="medication-label">End date:</label>
+    {{ form.end_date }}
+    <span class="error-message">{{ form.end_date.errors }}</span>
+
+    <button type="submit" class="medication-button">Save Changes</button>
+</form>
+
+{% if form.errors %}
+    <p class="error-message">{{ form.non_field_errors }}</p>
+{% endif %}
+
+<a href="{% url 'medication_management:medication_detail' pk=medication.pk %}" class="medication-link">Back to Medication Detail</a>
+
+<!-- Include flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Include flatpickr JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    // Initialize flatpickr on the date input fields
+    flatpickr("#start_date", {
+        dateFormat: "Y-m-d",
+    });
+
+    flatpickr("#end_date", {
+        dateFormat: "Y-m-d",
+    });
+</script>
+
+{% endblock %}

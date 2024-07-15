@@ -1,0 +1,142 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}Dashboard{% endblock %}
+
+{% block content %}
+<style>
+    .dashboard-container {
+        padding: 20px;
+        background-color: #f5f6f7;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        max-width: 900px;
+        margin: auto;
+        margin-top: 50px;
+    }
+
+    .welcome-message-container {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .welcome-message {
+        font-size: 2.5em;
+        font-weight: bold;
+        color: #3b5998;
+    }
+
+    .profile-container {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+
+    .profile-picture-container {
+        flex: 0 0 auto;
+        text-align: center;
+        margin-right: 20px;
+    }
+
+    .profile-picture {
+        border-radius: 50%;
+        border: 5px solid #3b5998;
+    }
+
+    .profile-bio {
+        margin-top: 10px;
+        font-size: 1.2em;
+        color: #666;
+    }
+
+    .default-picture {
+        width: 200px;
+        height: 200px;
+    }
+
+    .custom-picture {
+        width: 200px;
+        height: 200px;
+    }
+
+    .profile-details-container {
+        flex: 1 1 auto;
+        text-align: left;
+    }
+
+    .profile-details h2 {
+        font-size: 1.5em;
+        color: #3b5998;
+        margin-bottom: 10px;
+    }
+
+    .profile-detail-item {
+        margin-bottom: 10px;
+    }
+
+    .profile-detail-item label {
+        font-weight: bold;
+        color: #333;
+        margin-right: 10px;
+    }
+
+    @media (max-width: 768px) {
+        .profile-container {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .profile-picture-container {
+            margin-right: 0;
+            margin-bottom: 20px;
+        }
+
+        .profile-details-container {
+            text-align: center;
+        }
+    }
+</style>
+
+<div class="dashboard-container">
+    <div class="welcome-message-container">
+        <h1 class="welcome-message">Welcome {{ user.username }} to your dashboard</h1>
+    </div>
+
+    <div class="profile-container">
+        <div class="profile-picture-container">
+            {% if profile.photo %}
+                <img src="{{ profile.photo.url }}" alt="Profile Picture" class="profile-picture custom-picture">
+            {% else %}
+                <img src="{% static 'css/Dashboard/account.png' %}" alt="Default Profile Picture" class="profile-picture default-picture">
+            {% endif %}
+            <p class="profile-bio">{{ profile.bio }}</p>
+        </div>
+
+        <div class="profile-details-container">
+            <div class="profile-details">
+                <h2>Profile Details</h2>
+                <div class="profile-detail-item">
+                    <label>Date of Birth:</label> {{ profile.date_of_birth|date:"F j, Y" }}
+                </div>
+                <div class="profile-detail-item">
+                    <label>Country:</label> {{ profile.country.name }}
+                </div>
+                <div class="profile-detail-item">
+                    <label>State:</label> {{ profile.state }}
+                </div>
+                <div class="profile-detail-item">
+                    <label>City:</label> {{ profile.city }}
+                </div>
+                <div class="profile-detail-item">
+                    <label>Zipcode:</label> {{ profile.zipcode }}
+                </div>
+                <div class="profile-detail-item">
+                    <label>Phone Number:</label> {{ profile.phone_number }}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

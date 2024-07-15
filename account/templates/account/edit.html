@@ -1,0 +1,253 @@
+{% extends "account/dashboard.html" %}
+
+{% block title %}Edit Profile{% endblock %}
+
+{% block content %}
+    <style>
+        #first-sect {
+            text-align: center;
+            background: linear-gradient(
+                to bottom, 
+                rgba(160, 189, 233, 1) 0%, 
+                rgba(160, 189, 233, 0) 90%
+            );
+        }
+
+        input {
+            border-radius: 7%;
+        }
+
+        input, select {
+            width: 324px;
+            height: 30px;
+            /* margin-left: 10px; */
+            /* margin-right: 20px; */
+        }
+
+        .firstone label {
+            display: inline-block;
+            min-width: 110px;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+
+        .secondone label {
+            display: inline-block;
+            min-width: 90px;
+            margin-right: 10px;
+            margin-left: 20px;
+        }
+
+        .container {
+            border: 1px solid #6c8ece;
+            /* background: linear-gradient(
+                to bottom, 
+                rgb(216, 200, 166) 0%, 
+                rgba(168, 206, 209, 0.507) 90%
+            ); */
+            background-color: rgb(242, 236, 252);
+            max-width: 800px; /* Set a maximum width */
+            margin: 0 auto; /* Center the container */
+            padding: 20px; /* Add padding for better appearance */
+            border-radius: 20px;
+            overflow-x: scroll;
+        }
+
+        h4 {
+            font-weight: bold;
+            margin-top: 20px;
+        }
+
+        .row {
+            padding-top: 40px;
+        }
+
+        @media only screen and (min-width: 501px) and (max-width: 575px) {
+            input {
+                width: 270px;
+                height: 30px;
+            }
+
+            .container {
+                width: 360px;
+            }
+
+            select {
+                width: 270px;
+                height: 30px;
+            }
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 650px) {
+            input {
+                width: 270px;
+                height: 30px;
+            }
+
+            .container {
+                width: 460px;
+                margin-left: 20px;
+                margin-right: 20px;
+            }
+
+            select {
+                width: 270px;
+                height: 30px;
+            }
+        }
+
+        @media only screen and (min-width: 576px) and (max-width: 767px) {
+            input {
+                width: 200px;
+                height: 30px;
+            }
+
+            select {
+                width: 200px;
+                height: 30px;
+            }
+        }
+
+        p {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-bottom: 5px;
+            padding-top: 2px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 868px) {
+            input {
+                width: 270px;
+                height: 30px;
+            }
+
+            .container {
+                width: 650px;
+                margin-left: 20px;
+            }
+
+            select {
+                width: 270px;
+                height: 30px;
+            }
+        }
+
+        @media only screen and (min-width: 300px) and (max-width: 400px) {
+            input {
+                width: 240px;
+                height: 30px;
+            }
+            
+            .container {
+                width: 270px;
+            }
+            
+            select {
+                width: 240px;
+                height: 30px;
+            }
+        }
+
+        @media only screen and (min-width: 400px) and (max-width: 500px) {
+            input {
+                width: 240px;
+                height: 30px;
+            }
+
+            .container {
+                width: 280px;
+                margin-right: auto;
+            }
+
+            select {
+                width: 240px;
+                height: 30px;
+            }
+        }
+
+        @media only screen and (min-width: 245px) and (max-width: 345px) {
+            input {
+                width: 200px;
+                height: 30px;
+            }
+
+            .container {
+                width: 240px;
+            }
+
+            select {
+                width: 200px;
+                height: 30px;
+            }
+
+        }
+    </style>
+
+    <section id="first-sect">
+        <form method="post" enctype="multipart/form-data" style="margin-top: 60px;">
+            {% csrf_token %}
+            <div class="container">
+                <h4>Profile Edit</h4>
+                <hr>
+                <div class="row" >
+                    <label class="no-flex-shrink" for="bio" >Bio: </label>
+                    <!-- {{ profile_form.bio }} -->
+                        <div style="margin-bottom: 20px;" >{{ profile_form.bio }}</div>
+
+                    <div class="col-sm-6 firstone">
+                        <label for="id_username">Firstname:</label>
+                        {{ user_form.first_name }}
+                        <br><br>
+
+                        <label for="id_last_name">Last Name:</label>
+                        {{ user_form.last_name }}
+                        <br><br>
+
+                        <label for="id_email">Email:</label>
+                        {{ user_form.email }}
+                        <br><br>
+
+                        <!-- Profile Form Fields -->
+                        <label for="id_date_of_birth">Date of Birth:</label>
+                        {{ profile_form.date_of_birth }}
+                        <br><br>
+
+                        <label for="id_zipcode">Zip Code:</label>
+                        {{ profile_form.zipcode }}
+
+                        <br><br>
+                    </div>
+                    <div class="col-sm-6 secondone">
+                        <label for="id_country">Country:</label>
+                        {{ profile_form.country }}
+                        <br><br>
+
+                        <label for="id_state">State:</label>
+                        {{ profile_form.state }}
+                        <br><br>
+
+                        <label for="id_phone_number">Phone No:</label>
+                        {{ profile_form.phone_number }}
+                        <br><br>
+
+                        <label for="id_city">City:</label>
+                        {{ profile_form.city }}
+                        <br><br>
+
+                        <label for="id_photo">Photo:</label>
+                        {{ profile_form.photo }}
+                        
+                        <br><br>
+                        
+                    </div>
+                </div>
+                <!-- <p><input type="submit" value="Save changes"></p> -->
+                <button class="btn gap-2 col-6 mx-auto" style="background-color: #a0bde9; margin-bottom: 20px; padding-bottom: 2px;" type="submit">
+                    <p>Save changes</p>
+                </button> 
+                <a href="{% url 'edit_additional_info' %}"><p>Edit you additional information here</p></a>
+            </div>
+        </form>
+    </section>
+
+{% endblock %}

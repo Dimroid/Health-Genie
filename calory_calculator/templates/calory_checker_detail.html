@@ -1,0 +1,70 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Calory Calculator{% endblock %}
+
+{% block content %}
+
+<style>
+    section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .container {
+        border: 1px solid #6c8ece;
+        background-color: rgb(242, 236, 252);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    .btn {
+        background-color: #a0bde9;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    p {
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    #id_photo {
+        width: 100%;
+        margin-left: 0%;
+        overflow: hidden;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+            width: 90%;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+    }
+</style>
+
+<div class="container">
+    <h2>Food Image Details</h2>
+    <img style="width: 200px; height: 148px;" src="{{ food_image.photo.url }}" alt="Food Image">
+    <p>Name: {{ food_image.food_name }}</p>
+    {% if calorie_info %}
+        <p>Calories for {{ food_image.grams }} grams: {{ calorie_info }}</p>
+    {% else %}
+        <p>Calories for {{ food_image.grams }} grams: {{ food_image.calories }}</p>
+    {% endif %}
+    <p>Additional Info: {{ food_image.additional_info }}</p>
+</div>
+
+{% endblock %}

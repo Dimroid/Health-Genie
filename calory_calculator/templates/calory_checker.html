@@ -1,0 +1,88 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Calory Calculator{% endblock %}
+
+{% block content %}
+
+<style>
+    section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .container {
+        border: 1px solid #6c8ece;
+        background-color: rgb(242, 236, 252);
+        width: 100%;
+        max-width: 400px;
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+        
+    }
+
+    .btn {
+        background-color: #a0bde9;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    p {
+        font-weight: bold;
+        font-family: 'Courier New', Courier, monospace;
+    }
+
+    /* Adjust width and alignment for id_photo */
+    #id_photo {
+        width: 100%;
+        margin-left: 0%; /* Align it with id_quantity */
+        overflow: hidden; /* Prevent image overflow */
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            padding: 10px;
+            width: 90%;
+        }
+
+        input {
+            width: 100%;
+        }
+
+        .btn {
+            margin-top: 10px;
+        }
+    }
+</style>
+
+<section>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <div class="form-group">
+                <label for="id_food_name"><p>Food Name:</p></label>
+                <br>
+                {{ form.food_name }}
+                <br><br>
+            </div>
+            <div class="form-group">
+                <label for="id_quantity"><p>Quantity:</p></label>
+                <br>
+                {{ form.grams }}
+                <br><br>
+            </div>
+            <div class="form-group">
+                <label for="id_photo"><p>Photo:</p></label>
+                <br>
+                {{ form.photo }}
+                <br>
+                <br>
+            </div>
+            <button class="btn" type="submit">Submit</button>
+        </div>
+    </form>
+</section>
+
+{% endblock %}

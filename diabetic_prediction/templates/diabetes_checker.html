@@ -1,0 +1,97 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Diabetes Checker {% endblock %}
+
+{% block content %}
+
+<style>
+    section {
+        text-align: center;
+        margin-top: 50px;
+    }
+
+    .container {
+        width: 370px;
+        height: 380px;
+        border: 1px solid #6c8ece;
+        background-color: rgb(242, 236, 252);
+        margin: 0 auto;
+        padding: 20px;
+        border-radius: 20px;
+    }
+
+    p {
+        font-weight: bold;
+    }
+
+    .btn {
+        background-color: #a0bde9;
+    }
+
+    .btn:hover {
+        background-color: #a0bde9;
+    }
+
+    h3 {
+        font-weight: bold;
+    }
+
+    @media (max-width: 768px) {
+        .container {
+            width: 90%;
+            padding: 10px;
+            height: 430px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 5px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .btn {
+            width: 100%;
+            margin-top: 10px;
+        }
+    }
+</style>
+
+<section>
+    <div class="container">
+        <h3>Diabetes Detection</h3>
+        <hr>
+        <br>
+        <form method="POST" enctype="multipart/form-data" action="{% url 'diabetic_prediction:diabetic_predict' %}">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="id_name"><p>Name:</p></label>
+                {{ form.name }}
+                <br>
+            </div>
+            <div class="form-group">
+                <br>
+                <label for="id_photo"><p>Photo</p></label>
+                {{ form.photo }}
+                <br>
+                <br>
+            </div>
+            <button class="btn" type="submit">Upload</button>
+            <br>
+        </form>
+    </div>
+</section>
+
+{% if prediction %}
+    <p>{{ prediction }}</p>
+{% endif %}
+
+{% endblock %}

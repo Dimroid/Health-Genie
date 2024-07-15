@@ -1,0 +1,18 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Delete Management{% endblock %}
+
+{% block content %}
+
+    <h1>Delete Medication</h1>
+    <p>Are you sure you want to delete {{ medication.name }}?</p>
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Delete</button>
+    </form>
+    <a href="{% url 'medication_management:medication_detail' medication.pk %}">Cancel</a>
+
+
+{% endblock %}

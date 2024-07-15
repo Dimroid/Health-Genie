@@ -1,0 +1,13 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Send Message{% endblock %}
+{% block content %}
+
+    <form method="post">
+        {% csrf_token %}
+        <textarea name="message" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Send Message">
+    </form>
+{% endblock %}

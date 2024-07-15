@@ -1,0 +1,55 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}AI Symptom Response{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="response-container">
+        <div class="response-header">
+            <h2>AI Symptom Response</h2>
+        </div>
+        <div class="response-body">
+            <p>{{ ai_response }}</p>
+        </div>
+    </div>
+</div>
+
+<style>
+    .container {
+        margin-top: 50px;
+        display: flex;
+        justify-content: center;
+    }
+
+    .response-container {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        padding: 20px;
+        width: 80%;
+        max-width: 600px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    .response-header {
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+    }
+
+    .response-header h2 {
+        font-size: 24px;
+        color: #333;
+        margin: 0;
+    }
+
+    .response-body p {
+        font-size: 18px;
+        color: #666;
+        line-height: 1.6;
+    }
+</style>
+{% endblock %}

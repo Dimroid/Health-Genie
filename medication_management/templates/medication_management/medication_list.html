@@ -1,0 +1,84 @@
+{% extends "account/dashboard.html" %}
+{% load static %}
+
+{% block title %}Medication Management{% endblock %}
+
+{% block content %}
+
+<style>
+    .medication-container {
+        max-width: 800px;
+        margin: auto;
+        padding: 20px;
+        background-color: #f9f9f9;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+    }
+
+    .medication-container h1 {
+        font-size: 2.5em;
+        color: #333;
+        margin-bottom: 20px;
+    }
+
+    .medication-container a.add-medication {
+        display: inline-block;
+        padding: 10px 20px;
+        margin-bottom: 20px;
+        background-color: #28a745;
+        color: #fff;
+        border-radius: 5px;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+    }
+
+    .medication-container a.add-medication:hover {
+        background-color: #218838;
+    }
+
+    .medication-list {
+        list-style: none;
+        padding: 0;
+    }
+
+    .medication-list li {
+        background-color: #fff;
+        margin: 10px 0;
+        padding: 15px;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease;
+    }
+
+    .medication-list li:hover {
+        transform: translateY(-3px);
+    }
+
+    .medication-list a {
+        text-decoration: none;
+        color: #007bff;
+        font-size: 1.2em;
+        transition: color 0.3s ease;
+    }
+
+    .medication-list a:hover {
+        color: #0056b3;
+    }
+</style>
+
+<div class="medication-container">
+    <h1>Medication List</h1>
+    <a href="{% url 'medication_management:add_medication' %}" class="add-medication">Add New Medication</a>
+    <ul class="medication-list">
+        {% for medication in medications %}
+        <li>
+            <a href="{% url 'medication_management:medication_detail' medication.pk %}">
+                {{ medication.name }}
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+
+{% endblock %}

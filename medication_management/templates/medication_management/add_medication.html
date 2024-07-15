@@ -1,0 +1,131 @@
+{% extends "account/dashboard.html" %}
+
+{% load static %}
+
+{% block title %}Add Medication{% endblock %}
+
+{% block content %}
+
+<style>
+    #first-sect {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        min-height: 100vh; /* Minimum viewport height */
+        background: linear-gradient(
+            to bottom, 
+            rgba(160, 189, 233, 1) 0%, 
+            rgba(160, 189, 233, 0) 90%
+        );
+    }
+
+    .container {
+        max-width: 800px; /* Set a maximum width */
+        margin: 0 auto; /* Center the container */
+        padding: 20px; /* Add padding for better appearance */
+        border-radius: 20px;
+        background-color: #f9f9f9;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1 {
+        margin-bottom: 20px;
+        color: #3b5998;
+    }
+
+    hr {
+        border: none;
+        border-top: 1px solid #ccc;
+        margin-bottom: 20px;
+    }
+
+    label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+    }
+
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    button {
+        width: 100%;
+        padding: 10px;
+        background-color: #3b5998;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+
+    button:hover {
+        background-color: #2d4473;
+    }
+
+    p {
+        color: red;
+        margin-top: 5px;
+        margin-bottom: 0;
+    }
+</style>
+
+<section id="first-sect">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="container">
+            <h1>Add Medication</h1>
+            <hr>
+            <label for="id_name">Name:</label>
+            <input type="text" id="id_name" name="name" value="{{ form.name.value }}">
+            {{ form.name.errors }}
+
+            <label for="id_dosage">Dosage:</label>
+            <input type="text" id="id_dosage" name="dosage" value="{{ form.dosage.value }}">
+            {{ form.dosage.errors }}
+
+            <label for="id_frequency">Frequency:</label>
+            <input type="text" id="id_frequency" name="frequency" value="{{ form.frequency.value }}">
+            {{ form.frequency.errors }}
+
+            <label for="start_date">Start date:</label>
+            <input type="text" id="start_date" name="start_date" value="{{ form.start_date.value }}">
+            {{ form.start_date.errors }}
+
+            <label for="end_date">End date:</label>
+            <input type="text" id="end_date" name="end_date" value="{{ form.end_date.value }}">
+            {{ form.end_date.errors }}
+
+            {% if form.errors %}
+                <p>{{ form.non_field_errors }}</p>
+            {% endif %}
+
+            <button type="submit">Save</button>
+        </div>
+    </form>
+</section>
+
+<!-- Include flatpickr CSS -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+
+<!-- Include flatpickr JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script>
+    // Initialize flatpickr on the date input fields
+    flatpickr("#start_date", {
+        dateFormat: "Y-m-d",
+    });
+
+    flatpickr("#end_date", {
+        dateFormat: "Y-m-d",
+    });
+</script>
+
+{% endblock %}

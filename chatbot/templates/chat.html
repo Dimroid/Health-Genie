@@ -1,0 +1,122 @@
+{% extends "account/dashboard.html" %}
+
+{% block title %}Health Chatbot{% endblock %}
+
+{% block content %}
+<style>
+
+    p {
+      overflow-y: scroll;
+      color: #16253d;
+      padding: 10px;
+    }
+    .chat-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f4f4f4;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+
+    .chatbot-title {
+        font-size: 2.5em;
+        margin-top: 20px;
+        animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.2);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .response-container {
+        background-color: rgb(187 127 127);
+        color: white;
+        height: 50vh;
+        width: 90%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        border-radius: 10px;
+        margin-top: 20px;
+        animation: bounce 1s infinite alternate;
+    }
+
+    @keyframes bounce {
+        0% {
+            transform: translateY(0);
+        }
+        100% {
+            transform: translateY(-10px);
+        }
+    }
+
+    .chatbox {
+        display: flex;
+        margin-top: 20px;
+    }
+
+    .chatbox textarea {
+        flex: 1;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        padding: 10px;
+        resize: none;
+        line-height: 30px;
+        height: 60px;
+    }
+
+    .chatbox button {
+        margin-left: 10px;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 10px;
+        background-color: #4CAF50;
+        color: white;
+        cursor: pointer;
+        animation: rotate 2s infinite linear;
+    }
+
+    @keyframes rotate {
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+
+</style>
+
+<div class="chat-container">
+    <h1 class="chatbot-title">Health Chatbot</h1>
+    <span>Your personal medical AI</span>
+    </br>
+
+    <h4>Ask your questions, I'm here to help</h4>
+    <div class="response-container" id="response-container">
+        {% if response %}
+            <h2>Response:</h2>
+            <p>{{ response }}</p>
+        {% endif %}
+    </div>
+    <form method="post" class="chatbox" onsubmit="showResponse(event)">
+        {% csrf_token %}
+        {{ form.query }}
+        <button type="submit">Send</button>
+    </form>
+</div>
+
+{% endblock %}

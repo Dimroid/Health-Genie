@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block title %}Subscription Successful{% endblock %}
+{% block form_title %}Subscription Successful{% endblock %}
+
+
+{% block content %}
+
+    <style>
+        .login-form-container{
+            text-align: center;
+        }
+    </style>
+
+    <div class="login-form-container">
+    </br>
+        <p>Thank you for subscribing!</p>
+    </br>
+        <p><a href="{% url 'home' %}">Go back to Home</a></p>
+    </div>
+{% endblock %}
