@@ -11,8 +11,11 @@ import os
 print("Current working directory:", os.getcwd())
 
 # Load the trained model
-model = load_model('brain_tumor_detection/brain_tumour_app/cancer_detection_model.h5')
-
+try:
+    model = load_model('brain_tumor_detection/brain_tumour_app/cancer_detection_model.h5')
+except:
+    model = ''
+    
 @login_required
 def index(request):
     form = BrainTumorForm()

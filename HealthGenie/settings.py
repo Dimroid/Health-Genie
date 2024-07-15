@@ -99,18 +99,30 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'HealthGenie.wsgi.application'
 
+#
+#DATABASES = {
+#    'default': {
+#        'ENGINE': 'django.db.backends.postgresql',
+#        'NAME': 'healthgenie_db',
+#        'USER': 'dimeji',
+#        'PASSWORD': 'Dimzy123',
+#        'HOST': 'localhost',
+#        'PORT': '5432',
+#    }
+#}
+#
+
 
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'healthgenie_db',
-        'USER': 'dimeji',
-        'PASSWORD': 'Dimzy123',
-        'HOST': 'localhost',
-        'PORT': '5432',
+        'NAME': 'railway',
+        'USER': 'postgres',
+        'PASSWORD': 'PQoGClywFWNViMQuRDTyNauQuROymFVB',
+        'HOST':'roundhouse.proxy.rlwy.net',
+        'PORT':'23573',
     }
 }
-
 
 
 # Password validation
@@ -128,7 +140,7 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },=
+    }
 ]
 
 

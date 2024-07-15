@@ -11,7 +11,10 @@ import numpy as np
 from meta_ai_api import MetaAI
 
 # Load the trained food recognition model
-model = load_model('Food_Images_Train/food_recognition_model.h5')
+try:
+    model = load_model('Food_Images_Train/food_recognition_model.h5')
+except:
+    model = ''
 
 def food_recognition(image_path, confidence_threshold=0.2):
     img = cv2.imread(image_path)

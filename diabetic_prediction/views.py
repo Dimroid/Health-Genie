@@ -8,10 +8,15 @@ from .models import Diabetic_Prediction
 from .forms import DiabeticPredictionForm
 
 # Load the trained model
-model = load_model('diabetic_prediction/diabetic_app/diabetic_retinopathy_model.h5')
+try:
+    model = load_model('diabetic_prediction/diabetic_app/diabetic_retinopathy_model.h5')
+except:
+    model = ''
 # Determine the expected input shape of the model
-input_shape = model.input_shape[1:3]  # (height, width)
-
+try:
+    input_shape = model.input_shape[1:3]  # (height, width)
+except:
+    input_shape = ''
 @login_required
 def index(request):
     form = DiabeticPredictionForm()
