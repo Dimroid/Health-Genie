@@ -16,7 +16,6 @@ distro==1.9.0
 Django==5.0.6
 django-countries==7.6.1
 djangorestframework==3.15.1
-dlib==19.24.4
 exceptiongroup==1.2.1
 face-recognition==1.3.0
 face-recognition-models==0.3.0
@@ -47,8 +46,6 @@ meta_ai_api==1.1.7
 ml-dtypes==0.3.2
 namex==0.0.8
 numpy==1.26.4
-openai==1.34.0
-openapi==1.1.0
 opencv-python==4.10.0.82
 opt-einsum==3.3.0
 optree==0.11.0
