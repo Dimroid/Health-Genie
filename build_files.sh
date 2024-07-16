@@ -3,6 +3,10 @@ echo "BUILD START"
 # Exit on error
 set -o errexit
 
+sudo apt install libavdevice-dev libavfilter-dev libavformat-dev
+sudo apt install libavcodec-dev libswresample-dev libswscale-dev
+sudo apt install libavutil-dev 
+
 # Modify this line as needed for your package manager (pip, poetry, etc.)
 pip install -r requirements.txt
 
